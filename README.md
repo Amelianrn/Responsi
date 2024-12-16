@@ -88,7 +88,7 @@
 
 ## Contact  
 
-- **Pengembang**: [Amelia Nur'aini]  
-- **Email**: [amelianuraini@mail.ugm.ac.id]  
+- **Pengembang**: Amelia Nur'aini  
+- **Email**: amelianuraini@mail.ugm.ac.id  
 
 ---
