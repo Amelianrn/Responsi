@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Banggai | Wishlist Kota Amel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        .hero-bg {
+            background: linear-gradient(135deg, #d587af 0%, #ebd0e2 100%);
+        }
+        #map {
+            height: 650px; /* Tinggi elemen peta */
+            width: 100%;  /* Lebar penuh */
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-pink-600">Hello Banggai</div>
+            <div>
+                <a href="index.html" class="text-gray-800 hover:text-pink-600 mx-3">Home</a>
+                <a href="destinasi.html" class="text-gray-800 hover:text-pink-600 mx-3">Destinasi</a>
+                <a href="destinasi2.php" class="text-gray-800 hover:text-pink-600 mx-3">Data</a>
+                <a href="map.html" class="text-gray-800 hover:text-pink-600 mx-3">Map</a>
+                <a href="Kontak.html" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Kontak</a>
+            </div>
+        </div>
+    </nav>
+    <section class="container mx-auto px-11 py-5">
+        <h2 class="text-3xl font-bold text-center mb-8">Peta Kota Banggai</h2>
+        <div id="map"></div> <!-- Elemen peta -->
+    </section>    
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        // Inisialisasi peta dengan Leaflet
+        var map = L.map('map').setView([-1.008918719950037, 122.49413761359382], 9);
+
+        // Tambahkan layer OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+
+        // Definisi simbolisasi berdasarkan nama wilayah
+        var symbologyCategorized = {
+            "Mamosalato": "#FF9999",
+            "Moilong": "#FFCC99",
+            "Toili Barat": "#FFFF99",
+            "Toili": "#CCFF99",
+            "Kintom": "#99FF99",
+            "Batui Selatan": "#99FFCC",
+            "Batui": "#99FFFF",
+            "Mantoh": "#99CCFF",
+            "Nambo": "#9999FF",
+            "Luwuk Timur": "#CC99FF",
+            "Luwuk Selatan": "#FF99FF",
+            "Balantak Selatan": "#FF99CC",
+            "Lamala": "#FF6699",
+            "Nuhon": "#FF9966",
+            "Ulubongka": "#FFCC66",
+            "Ampana Tete": "#FFFF66",
+            "Luwuk": "#CCFF66",
+            "Bunta": "#99FF66",
+            "Simpangraya": "#66FF66",
+            "Balantak Utara": "#66FFCC",
+            "Balantak": "#66FFFF"
+        };
+
+        // Fungsi untuk mendapatkan gaya berdasarkan NAMOBJ
+        function getStyleByNAMOBJ(namobj) {
+            var color = symbologyCategorized[namobj] || "#CCCCCC"; // Default ke warna abu-abu jika NAMOBJ tidak ada
+            return {
+                color: "black", // Warna garis tepi
+                weight: 1.5,    // Ketebalan garis
+                fillColor: color,
+                fillOpacity: 0.6
+            };
+        }
+
+        // Layer untuk wilayah
+        var wilayahLayer = fetch('data/banggai.geojson')
+            .then(response => response.json())
+            .then(data => {
+                return L.geoJSON(data, {
+                    style: function (feature) {
+                        var namobj = feature.properties ? feature.properties.NAMOBJ : null;
+                        return getStyleByNAMOBJ(namobj);
+                    },
+                    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.NAMOBJ) {
+                            layer.bindPopup("Wilayah: " + feature.properties.NAMOBJ);
+                        }
+                    },
+                    // Abaikan elemen bounding box
+                    filter: function (feature) {
+                        return feature.geometry.type !== "BoundingBox";
+                    }
+                }).addTo(map);
+            });
+
+
+        // Layer untuk titik pariwisata
+        var titikLayer = fetch('data/pariwisata_pt.geojson')
+            .then(response => response.json())
+            .then(data => {
+                return L.geoJSON(data, {
+                    pointToLayer: function (feature, latlng) {
+                        return L.marker(latlng, {
+                            icon: L.icon({
+                                iconUrl: "icon/destinasi.png",
+                                iconSize: [45, 45],
+                                iconAnchor: [15, 30],
+                                popupAnchor: [0, -30],
+                            })
+                        });
+                    },
+                    onEachFeature: function (feature, layer) {
+                if (feature.properties && feature.geometry) {
+                    // Koordinat GeoJSON dalam format [longitude, latitude]
+                    var lon = feature.geometry.coordinates[0];
+                    var lat = feature.geometry.coordinates[1];
+                    
+                    // Tampilkan popup dengan destinasi dan koordinat
+                    layer.bindPopup(
+                        "Wisata: " + feature.properties.Destinasi + "<br>" +
+                        "Koordinat: " + lat.toFixed(6) + ", " + lon.toFixed(6) // 6 desimal untuk presisi
+                    );
+                }
+            }
+        }).addTo(map);
+    });
+    
+
+        // Layer untuk jalan
+        var jalanLayer = fetch('data/jalan_banggai.geojson')
+            .then(response => response.json())
+            .then(data => {
+                return L.geoJSON(data, {
+                    style: {
+                        color: "red",
+                        weight: 2
+                    },
+                    onEachFeature: function (feature, layer) {
+                        if (feature.properties && feature.properties.nama) {
+                            layer.bindPopup("Nama Jalan: " + feature.properties.nama);
+                        }
+                    }
+                }).addTo(map);
+            });
+
+        // Kontrol Layer
+        Promise.all([wilayahLayer, titikLayer, jalanLayer]).then(layers => {
+            L.control.layers(null, {
+                "Wilayah": layers[0],
+                "Titik Pariwisata": layers[1],
+                "Jalan": layers[2]
+            }).addTo(map);
+        });
+    </script>
+</body>
+</html>

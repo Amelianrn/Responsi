@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Banggai | Wishlist Kota Amel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-bg {
+            position: relative;
+            height: 100vh;
+            /* Full screen */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .nav-link {
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #d587af;
+            /* Warna saat hover */
+        }
+
+        .button {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #ebd0e2;
+            /* Warna saat hover */
+            transform: scale(1.05);
+        }
+
+        .footer-bg {
+            background-color: #4a4a4a;
+            /* Warna latar belakang footer */
+        }
+
+        .content-section {
+            padding-top: 2rem;
+        }
+
+        /* Styling untuk text di tengah */
+        .intro-text {
+            max-width: 800px;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.1rem;
+            color: rgb(76, 73, 73);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-pink-600">Hello Banggai</div>
+            <div>
+                <a href="index.html" class="text-gray-800 hover:text-pink-600 mx-3">Home</a>
+                <a href="destinasi.html" class="text-gray-800 hover:text-pink-600 mx-3">Destinasi</a>
+                <a href="destinasi2.php" class="text-gray-800 hover:text-pink-600 mx-3">Data</a>
+                <a href="map.html" class="text-gray-800 hover:text-pink-600 mx-3">Map</a>
+                <a href="Kontak.html" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header id="intro" class="hero-bg text-white text-center">
+        <!-- Video Background -->
+        <video autoplay loop muted playsinline>
+            <source src=".vscode\video\1409899-uhd_3840_2160_25fps.mp4" type="video/mp4">
+        </video>
+        <h1 class="text-5xl font-bold mb-4">KEINDAHAN BANGGAI</h1>
+        <p class="text-xl mb-8">Destinasi Wisata Kota Binggai</p>
+        <a href="#pengenalan" class="button bg-white text-pink-600 px-6 py-3 rounded-full">More Info</a>
+    </header>
+
+    <main id="content" class="content-section">
+        <section id="pengenalan" class="container mx-auto px-6 pt-16">
+            <h2 class="text-3xl font-bold text-center mb-10">Pengenalan Kota Banggai</h2>
+            <div class="flex justify-center">
+                <div class="w-full md:w-7/12 mx-auto">  
+                    <p class="text-center">Selamat datang di Portal Wisata Kota Banggai! Siapkah memulai petualangan tak terlupakan di kota yang penuh pesona ini? Kota Banggai menawarkan berbagai destinasi wisata yang memikat, mulai dari keindahan pantai yang memukau hingga gemerlap air terjun yang menyegarkan. Salah satu keindahan pantainya adalah Pantai Pongian, dengan pasir putih yang lembut dan laut biru jernih, menjadikannya surga bagi pecinta alam dan wisata pantai. Nikmati angin segar sambil disuguhi pemandangan yang menenangkan.
+            
+                        Tak hanya pantai, Banggai juga memiliki keindahan alam lainnya, seperti Air Terjun Uwe Molino. Tempat ini menjadi pilihan sempurna bagi siapa saja yang mencari ketenangan di tengah alam, dengan suara gemericik air yang menenangkan dan pemandangan yang memukau.
+            
+                        Temukan pengalaman eksplorasi berbeda yang membawa lebih dekat dengan destinasi wisata terbaik di Banggai. Jelajahi tempat-tempat tersembunyi yang jarang dijamah wisatawan, nikmati keindahan alam yang menawan, dan ciptakan kenangan tak terlupakan bersama Hello Banggai. Baik bagi yang mencari petualangan seru atau hanya ingin menikmati keindahan alam, Kota Banggai siap menyambut dengan berbagai pengalaman mempesona.
+            
+                        Mulailah perjalanan Anda sekarang juga dan rasakan pesonanya!</p>
+                </div>
+            </div>         
+        </section>     
+
+
+        <main id="content" class="content-section">
+            <!-- Bagian Map dan destinasi dalam 1 baris -->
+            <section id="info-sections" class="container mx-auto px-6 pb-16">
+                <!-- Gunakan flex dan justify-center agar tombol berada di tengah -->
+                <div class="flex justify-center gap-6">
+                    <div class="mb-4">
+                        <a href="map.html" class="bg-white rounded-lg shadow-md p-4 flex flex-col justify-center items-center w-full">
+                            <div class="mb-4">
+                                <img src="icon/map.png" alt="Map" class="w-20 mx-auto">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Peta Lokasi</h3>
+                            <p class="text-gray-700">Telusuri wilayah Banggai di peta.</p>
+                        </a>
+                    </div>
+                    <div class="mb-4">
+                        <a href="destinasi.html" class="bg-white rounded-lg shadow-md p-4 flex flex-col justify-center items-center w-full">
+                            <div class="mb-4">
+                                <img src="icon/desti.png" alt="Map" class="w-20 mx-auto">
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Destinasi</h3>
+                        <p class="text-gray-700">Jelajahi destinasi wisata menarik.</p>
+                        </a>
+                    </div>
+                </div>
+            </section>            
+        </main>        
+
+    <footer class="footer-bg text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Hello Banggai | Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+</body>
+
+</html>

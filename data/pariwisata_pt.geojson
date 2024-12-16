@@ -1,0 +1,13 @@
+{
+"type": "FeatureCollection",
+"name": "pariwisata_pt",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Pantai Tanjung" }, "geometry": { "type": "Point", "coordinates": [ 122.799246499379976, -0.950289737363835 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Uwe Molino" }, "geometry": { "type": "Point", "coordinates": [ 122.780463552065953, -0.957780546596626 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Pantai Pongian" }, "geometry": { "type": "Point", "coordinates": [ 122.20206905618133, -0.793010997467368 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Pulau Dua" }, "geometry": { "type": "Point", "coordinates": [ 123.399105370811228, -0.831870876028167 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Air Terjun Piala" }, "geometry": { "type": "Point", "coordinates": [ 122.770067691970638, -0.949881033992935 ] } },
+{ "type": "Feature", "properties": { "Id": 0, "Destinasi": "Bukit Manohara" }, "geometry": { "type": "Point", "coordinates": [ 122.796797116274092, -0.905006483290335 ] } }
+]
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Banggai | Wishlist Kota Amel</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <style>
+        /* Hero Section Style */
+        #destinasi-header {
+            background: url('.vscode/gambar/destinasi.jpg') no-repeat center center;
+            background-size: cover;
+            height: 400px;
+            position: relative;
+        }
+
+        #destinasi-header .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            /* Transparansi hitam */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        #destinasi-header .content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Destinasi Card Style */
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <nav class="bg-white shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-pink-600">Hello Banggai</div>
+            <div>
+                <a href="index.html" class="text-gray-800 hover:text-pink-600 mx-3">Home</a>
+                <a href="destinasi.html" class="text-gray-800 hover:text-pink-600 mx-3">Destinasi</a>
+                <a href="destinasi2.php" class="text-gray-800 hover:text-pink-600 mx-3">Data</a>
+                <a href="map.html" class="text-gray-800 hover:text-pink-600 mx-3">Map</a>
+                <a href="Kontak.html" class="bg-pink-600 text-white px-4 py-2 rounded-full hover:bg-pink-700">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="destinasi-header">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1 class="text-4xl font-bold">Destinasi</h1>
+            <p class="text-lg">Nikmati Keindahan Kota Banggai</p>
+        </div>
+    </header>
+
+    <section id="destinasi" class="container mx-auto px-6 py-16">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-10">Destinasi Wisata Populer</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Destinasi 1 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://sandee.com/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Fp%2FAF1QipOEuOWsOPhC9N0ms5tQQjKTIPeA4xAS6J4fADlh%3Ds1600-k-no&w=640&q=75 "
+                        alt="Pantai Pongian" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold mb-2">Pantai Pongian</h2>
+                        <p class="text-gray-600">Pantai Pongian di Kabupaten Banggai terkenal dengan pasir putih halus,
+                            air
+                            jernih, dan pemandangan alam yang memukau, menjadikannya destinasi favorit untuk berenang,
+                            berjemur, dan menyelam.</p>
+                    </div>
+                </div>
+                <!-- Destinasi 2 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://kampungkb.bkkbn.go.id/storage/72/7201/720104/7201042008/9678/gambar.jpg"
+                    alt="Air Terjun Uwe Molino" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold mb-2">Air Terjun Uwe Molino</h2>
+                        <p class="text-gray-600">Air Terjun Uwe Molino di Kabupaten Banggai terkenal dengan keindahan
+                            alamnya yang mempesona, dikelilingi hutan tropis yang asri. Air terjun ini menawarkan suasana
+                            yang tenang dan pemandangan spektakuler, cocok untuk wisata alam dan foto.</p>
+                    </div>
+                </div>
+                <!-- Destinasi 3 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://static.promediateknologi.id/crop/0x620:718x1049/750x500/webp/photo/p1/583/2024/02/20/Screenshot_20240220_193816-2785802571.jpg " alt="Pantai Tanjung" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800">Pantai Tanjung</h3>
+                        <p class="text-gray-600">Pantai Tanjung Luwuk, terletak di Kabupaten Banggai, dikenal dengan pasir
+                            putihnya yang halus dan perairan yang jernih. Pantai ini menawarkan pemandangan matahari
+                            terbenam yang memukau, menjadikannya destinasi populer bagi wisatawan yang mencari ketenangan
+                            dan keindahan alam.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                <!-- Destinasi 4 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://lifestyle.haluan.co/wp-content/uploads/2024/01/125281249_1703909666450103_44040-scaled.jpg" alt="Air Terjun Piala" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800">Air Terjun Piala</h3>
+                        <p class="text-gray-600">Air Terjun Piala, yang terletak di Kabupaten Banggai, menawarkan pesona
+                            alam yang menakjubkan. Dengan air terjun yang tinggi dan jernih, dikelilingi oleh hutan tropis
+                            yang hijau, tempat ini menjadi destinasi favorit bagi para pencinta alam dan petualang yang
+                            ingin menikmati keindahan alam yang asri.</p>
+                    </div>
+                </div>
+                <!-- Destinasi 5 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://media-cdn.tripadvisor.com/media/photo-s/10/45/ab/4e/bukit-teletubbies-luwuk.jpg" alt="Bukit Manohara" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800">Bukit Manohara</h3>
+                        <p class="text-gray-600">
+                            Bukit Manohara, terletak di Kabupaten Banggai, menawarkan pemandangan alam yang spektakuler
+                            dengan panorama laut dan perbukitan hijau. Tempat ini terkenal sebagai spot terbaik untuk
+                            menikmati matahari terbit dan terbenam, serta trekking ringan. Keindahan alamnya yang masih
+                            alami menjadikannya destinasi populer bagi wisatawan yang mencari kedamaian dan keindahan alam.</p>
+                    </div>
+                </div>
+                <!-- Destinasi 6 -->
+                <div class="card bg-white shadow-md rounded-lg overflow-hidden">
+                    <img src="https://cdn.digitaldesa.com/uploads/profil/72.01.09.2056/berita/12867fbc124c932216b1842799c9a12a.png" alt="Pulau Dua" class="w-full h-48 object-cover">
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800">Pulau Dua</h3>
+                        <p class="text-gray-600">Pulau Dua, yang terletak di Kabupaten Banggai, dikenal dengan keindahan
+                            alam bawah lautnya yang memukau. Pulau ini menawarkan pantai berpasir putih, air laut yang
+                            jernih, serta terumbu karang yang indah, menjadikannya destinasi sempurna untuk snorkeling dan
+                            diving. Keindahan alamnya yang alami juga didukung dengan suasana yang tenang, menjadikan Pulau
+                            Dua sebagai tempat ideal untuk relaksasi dan petualangan laut.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2024 Hello Banggai | Semua Hak Dilindungi.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
